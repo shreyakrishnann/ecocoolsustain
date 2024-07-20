@@ -83,12 +83,12 @@ jobs:
           context: ./
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/reactsample:latest
+          tags: ${{ secrets.DOCKER_USERNAME }}/sustaincontainer:latest
 
       - name: Run the image in a container
         uses: addnab/docker-run-action@v3
         with:
-          image: ${{ secrets.DOCKER_USERNAME }}/reactsample:latest
+          image: ${{ secrets.DOCKER_USERNAME }}/sustaincontainer:latest
           run: |
             echo "running the docker image"
 
