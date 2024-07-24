@@ -42,7 +42,7 @@ jobs:
         projectKey: ${{ secrets.SONAR_PROJECT_KEY }}
         organization: ${{ secrets.SONAR_ORGANIZATION }}
         scannerMode: 'CLI'
-        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        token: ${{ secrets.SONAR_TOKEN }}
 
   docker-build:
     runs-on: ubuntu-latest
