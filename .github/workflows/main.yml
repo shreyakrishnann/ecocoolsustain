@@ -75,12 +75,12 @@ jobs:
         context: ./
         file: ./Dockerfile
         push: true
-        tags: ${{ secrets.DOCKER_USERNAME }}/EcoCoolSustain:latest
+        tags: ${{ secrets.DOCKER_USERNAME }}/ecocoolsustain:latest
 
     - name: Run the image in a container (optional)
       uses: addnab/docker-run-action@v3
       with:
-        image: ${{ secrets.DOCKER_USERNAME }}/EcoCoolSustain:latest
+        image: ${{ secrets.DOCKER_USERNAME }}/ecocoolsustain:latest
         run: |
           echo "running the docker image"
 
