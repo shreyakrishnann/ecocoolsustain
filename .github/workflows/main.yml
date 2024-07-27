@@ -40,12 +40,12 @@ jobs:
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Needed to get PR information, if any
+          GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }} # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
           args: >
-            -Dsonar.organization=amandhimand
-            -Dsonar.projectKey=AmanDhimanD_githubaction-deploy
+            -Dsonar.organization=shreyakrishnann
+            -Dsonar.projectKey=shreyakrishnann_pro-githubaction-deployment
             -Dsonar.sources=.
             -Dsonar.host.url=https://sonarcloud.io
             -Dsonar.login=${{ secrets.SONAR_TOKEN }}
@@ -75,12 +75,12 @@ jobs:
         context: ./
         file: ./Dockerfile
         push: true
-        tags: ${{ secrets.DOCKER_USERNAME }}/reactsample:latest
+        tags: ${{ secrets.DOCKER_USERNAME }}/EcoCoolSustain:latest
 
     - name: Run the image in a container (optional)
       uses: addnab/docker-run-action@v3
       with:
-        image: ${{ secrets.DOCKER_USERNAME }}/reactsample:latest
+        image: ${{ secrets.DOCKER_USERNAME }}/EcoCoolSustain:latest
         run: |
           echo "running the docker image"
 
@@ -93,8 +93,8 @@ jobs:
 
       - name: Deploy to Vercel
         env:
-          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+          VERCEL_ORG_ID: ${{ secrets.ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.PROJECT_ID }}
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
